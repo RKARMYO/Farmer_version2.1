@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>farmer</title>
+	
+
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="css/all.css">
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- Material Design Bootstrap -->
+	<link rel="stylesheet" href="css/mdb.min.css">
+	<!-- Our custom styles (optional) -->
+	<link rel="stylesheet" href="css/teamcs.css">
+	
+
+	<link rel="icon" href="images/app_icon.png" type="image/gif" sizes="16x16">
+
+	<style>
+
+		@font-face 
+		{
+		  font-family: 'Pyidaungsu';
+		  src: URL('font/Pyidaungsu.ttf') format('truetype');
+		}
+		body
+		{
+			font-family: Pyidaungsu;
+		}
+	.my_card{
+		margin-bottom: 20px;
+	}
+	.no_link{
+		text-decoration: none;
+	}
+	img
+		{
+			width: 350px;
+			height: 300px;
+		}
+		.toshow,.tohide
+		{
+			color: red;
+		}
+		.hidedata,#loading
+		{
+			display:none;
+		}
+		.tohide:hover,.toshow:hover
+		{
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body class="fixed-sn white-skin">
+
+	<!-- Main Navigation -->
+	<header>
+		<!-- Sidebar navigation -->
+		<div id="slide-out" class="side-nav sn-bg-4 fixed">
+			<ul class="custom-scrollbar">
+				<!-- Logo -->
+				<li class="logo-sn waves-effect py-3">
+					<div class="text-center">
+						
+						<p style="color:black; font-size:12px; padding-top: 50px;">
+							မာတိကာ
+						<p>
+					</div>
+				</li>
+				<!-- Side navigation links -->
+				<li>
+					<ul class="collapsible collapsible-accordion">
+						
+						<!-- Simple link -->
+						<li> 
+							<a href="farmer.html" class="collapsible-header waves-effect ui_navigation" id="developreportbtn"><i class="w-fa fas fa-chart-pie  ui_navigation"></i>စိုက်ပျိုးရေးၑဟုသုတများ</a>
+						</li>
+						<li> 
+							<a href="advice.html" class="collapsible-header waves-effect ui_navigation" id="developreportbtn"><i class="w-fa fas fa-chart-pie  ui_navigation"></i>သီးနံပင်များ</a>
+						</li>
+						<li> 
+							<a href="insect.html" class="collapsible-header waves-effect ui_navigation active" id="developreportbtn"><i class="w-fa fas fa-chart-pie  ui_navigation"></i>ပိုးမွှားအန္တရာယ်</a>
+						</li>
+						<li> 
+							<a href="flower.html" class="collapsible-header waves-effect ui_navigation" id="developreportbtn"><i class="w-fa fas fa-chart-pie  ui_navigation"></i>ပန်းစိုက်ပျိုးနည်း</a>
+						</li>
+						<li> 
+							<a href="https://team-cs.herokuapp.com/farmer_server/usersend.php" class="collapsible-header waves-effect ui_navigation active" id="developreportbtn"><i class="w-fa fas fa-chart-pie  ui_navigation"></i>အချက်အလက်အသစ်ပေးပို့ရန်</a>
+						</li>
+						<li> 
+							<a href="about.html" class="collapsible-header waves-effect ui_navigation" id="developreportbtn"><i class="w-fa fas fa-chart-pie  ui_navigation"></i>About</a>
+						</li>
+					</ul>
+
+					
+				</li>
+				<!-- Side navigation links -->
+			</ul>
+			<div class="sidenav-bg mask-strong"></div>
+		</div>
+		<!-- Sidebar navigation -->
+		<!-- Navbar -->
+		<nav class="navbar fixed-top navbar-expand-lg scrolling-navbar double-nav" id="nav_id">
+			<!-- SideNav slide-out button -->
+			<div class="float-left"> <a href="#" data-activates="slide-out" class="button-collapse"><i class="fas fa-bars"></i></a>
+			</div>
+			<!-- Breadcrumb -->
+			<div class="breadcrumb-dn mr-auto align-center">
+				<p></p>
+			</div>
+			<div class="title_text mr-auto align-center text-center">
+				<h4 id="header_id" style="padding-left: 15px;"> တောင်သူဦးကြီးများလက်စွဲ</h4>
+			</div>
+			<div class="d-flex change-mode">
+				<!-- Navbar links -->
+				<ul class="nav navbar-nav nav-flex-icons ml-auto" style="display: none;">
+					<li class="nav-item dropdown">
+						<a  href="index.html" class="nav-link dropdown-toggle waves-effect" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-comments-dollar"></i>  <span class="clearfix d-none d-sm-inline-block"></span>
+						</a>
+
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown"> <a   href="index.html"  class="dropdown-item ui_navigation" href="#login_section" id="logout_btn">မူလစာမျက်နှာ</a>
+						</div>
+					</li>
+				</ul>
+				<!-- Navbar links -->
+			</div>
+		</nav>
+		
+	</header>
+	<!-- Main Navigation -->
+
+	<!-- Main layout -->
+	<main>
+		<div class="container-fluid">
+			<!-- Section: Intro -->
+			<section id="intro_section">
+
+				<center><div class="spinner-border text-primary" role="status" id="loading">
+		            <span class="sr-only">Loading...</span>
+		        </div></center>
+
+
+				<div id="toappend">
+				<span style="color:blue;"> FAW ငမြောင်⁠တောင် ကာကွယ်⁠နှိမ်နင်းနည်းလမ်းများ</span>
+				<div class="card">
+					<div class="card-body">
+						<p><span style="color: blue;">မိမိ⁠ဒေသတွင်းကျ⁠ရောက်⁠နေ⁠ပြီဆိုပါက သီး⁠နှံမစိုက်ခင်⁠ကြိုတင်လုပ်⁠ဆောင်ရမည့်အချက်များ</span>
+
+							<br>၁။ စိုက်ချိန်တ⁠ပြိုင်နက်တည်းစိုက်ပါ (တနည်းအား⁠ဖြင့် အပင်သက်တမ်းစုံလျှင် ပိုမို၍ ကျ⁠ေ ရာက်⁠နိုင် ⁠ေ⁠ခြများပါသည်။ ) ⁠နောက်ကျ စိုက်⁠ခြင်းကို ⁠ရှောင်ပါ။					
+							<br>၂။ တကွင်းတစပ်တည်း ⁠ေ⁠ပြာင်းတစ်မျိုးတည်း စိုက်⁠ခြင်းကို ⁠ရှောင်ပါ။ ပန်း⁠နှမ်း၊ ပီ⁠လောပီနံ ⁠နှင့် ⁠ဆေးရွက်⁠ကြီးများ ⁠နှင့် သီးညှပ်စိုက်ပျိုးပါ။ သီး⁠နှံအစုံ စိုက်ပျိုးပါ။ 
+						</p>
+						<center><img src="images/farmer33.jpg"></center>
+						<span class="toshow">ဆက်လက်ဖတ်ရှု့ရန် </span>
+						<span class="hidedata">
+								<p>
+									<br>၃။ အပတ်စဉ်ကွင်းဆင်းစစ်⁠ဆေးပါ။ ဥ⁠မြုံများ၊ ⁠လောက်⁠ကောင်ငယ်များ (အရွက်⁠အောက် မျက်⁠နှာ⁠ပြင်)⁠ခြစ် စားထား⁠သော ဒဏ်ရာများကို ရှာ⁠ဖွေပါ။ လက်⁠ဖြင့်⁠ကောက်ယူဖျက်ဆီး⁠ခြင်း များ⁠ပြုလုပ်⁠ပေးပါ။
+
+									<br>၄။ ⁠လောက်⁠ကောင်⁠ကြီးများကို ပင်စည်ကိုဝိုင်း၍ ထွက်သည့်အရွက်များ (Whor 1) အတွင်းတွင် ရှာ⁠ဖွေပါ။
+
+									<br>၅။ အပင်ငယ်စဉ် ဥမှ⁠ပေါက်ခါစ အ⁠ကောင်ငယ်များမ⁠ပြန့်⁠နှံ့ခင် ကာကွယ်⁠နှိမ်နင်းမှုကို လက်ဦး⁠အောင်ရယူပါ။
+
+									<br>၆။ ဇီဝပိုးသတ်⁠ဆေး Bacillius thuringiensis (Bt) ကိုလည်း အ⁠ကောင်ငယ်များအဆင့်တွင် ထိ⁠ရောက်စွာ အသုံး⁠ပြုနိုင်ပါသည်။ (ည⁠နေခင်းအချိန်တွင် ဖျန်းပါ။ )
+									<br>၇။ သဘာဝပိုးသတ်⁠ဆေး တမာ ⁠နှင့် ⁠ဆေးရွက်⁠ကြီးများ⁠လောက်⁠ကောင်ငယ်အဆင့်တွင် ပတ်ဖျန်း⁠ပေးပါ။
+
+									(ည⁠နေခင်းအချိန်တွင် ဖျန်းပါ။ )
+
+									<br>၈။ ⁠လောက်⁠ကောင်များ⁠ပြန့်⁠နှံ့သွားပါက ပင်စည်ဝိုင်း၍ ထွက်သည့် အရွက်များ (Whor 1) အတွင်း⁠လောက်⁠ကောင်ငယ်များ ⁠ေ⁠ခြာက်၍⁠သေ⁠စေရန်အတွက် ⁠ပြာမှုန့်၊ သဲမှုန့်၊ မီး⁠သွေးမှုန့် ⁠နှင့် လွှစာမှုန့်များ ထည့်⁠ပေးပါ။ ထုံး၊ ဆား၊ ရွံ့  ရည် ⁠နှင့် အဝတ်⁠လျှော်ဆပ်⁠ပြာများလည်း ထည့်⁠ပေး⁠နိုင်ပါသည်။
+
+									<br>၉။ တစ်ပင်တွင် တစ်⁠ကောင်သာ⁠နေ⁠ပြီး အတွင်းပိုင်း⁠ကြီးထွားဆဲအညွန့်၊ အ⁠နှံများ ⁠နှင့် အဖူးများအတွင်း  ⁠နေထိုင်စား⁠သောက်⁠ကြသ⁠ဖြင့် ⁠ပြန့်⁠နှံ့သွားပါက ⁠ဆေးဖျန်း⁠ခြင်းအတွက် ⁠ဆေးပိုမို သုံးစွဲရမည်။
+
+									<br>၁၀။ စိုက်ခင်းအတွင်း မိတ်⁠ဆွေပိုးများ ကို ထိန်းသိမ်း⁠စောင့်⁠ရှောက်ပါ။ ပုရွက်ဆိတ်နီ၊   လိပ်ခုံးကျိုင်း၊ အ⁠တောင်မာကျိုင်း၊ နဖာ⁠ချေးပိုး၊ ပုဇဉ်း၊ ပင့်ကူ၊ ငှက် ⁠နှင့် နဂျီအုပ်စုဝင် ကပ်ပါးများ⁠နှင့် ကပ်ပါးယင်များ အားထိန်းသိမ်း⁠ပေးပါ။
+
+									<br>၁၁။ မီး⁠ထောင်⁠ချောက်ထွန်း⁠ခြင်းကို တကွင်းတစပ်တည်း လူထုလုပ်အား⁠ဖြင့် ⁠ဆောင်ရွက်ပါ။
+
+									<br>၁၂။ ပိုတက်⁠ေ⁠မြ⁠သြဇာကို သုံးစွဲ⁠ပေးပါ။ 
+								</p>
+								<p>
+									<span style="color: blue;">မှတ်ချက်။</span> ယခင်ကျ⁠ရောက်⁠လေ့ရှိ⁠သော င⁠ေ⁠မြှာင်⁠တောင်ပိုးမျိုးစိတ်များအား⁠နှိမ်နင်း သကဲ့သို့ စိုက်ခင်းပတ်လည် ⁠ေ⁠မြာင်းတူး⁠ခြင်း⁠ဖြင့် ထိ⁠ရောက်စွာ ကာကွယ်နိုင်⁠ခြင်း မရှိပါ။ 
+								</p>
+								<span class="tohide">ပိတ်မည် </span></span>
+					</div>
+				</div>
+				<br>
+				<span style="color:blue;">စပါး ⁠မြစ်ဖုနီမတုတ်⁠ရောဂါကျ⁠ရောက်လျှင် ⁠ဆောင်ရွက်သင့်သည့် အချက်များ</span>
+				<div class="card">
+					<div class="card-body">	
+						<p>
+							စပါးရိတ်သိမ်း⁠ပြီးချိန်တွင် စပါးပင်အ⁠မြစ်များ၊ ရိုး⁠ပြတ်များ ပင်⁠ကြွင်းပင်ကျန်များ ⁠နှင့် ⁠ပေါင်း⁠မြက်များကို မီးရှို့ပစ်⁠ခြင်း⁠ဖြင့် ⁠မြစ်ဖုအတွင်း⁠အောင်း⁠နေ⁠သော နီမတုတ်များကို  ⁠သေ⁠စေပါသည်။ 
+						</p>
+						<center><img src="images/farmer34.jpg"></center>
+						<span class="toshow">ဆက်လက်ဖတ်ရှု့ရန် </span>
+						<span class="hidedata">
+							<p>							
+								စိုက်ခင်းတွင် ⁠ရေ⁠ပြတ်လပ်သည့်အခါ နီမတုတ်မျိုးပွားမှု၊ ⁠ကြီးထွားမှု၊ ⁠ပြန့်ပွားမှုတို့ကို အား⁠ပေး⁠သော⁠ေ⁠ကြာင့် စိုက်ခင်းတွင် ⁠ရေအနည်းဆုံး⁠နှစ်လက်မခန့် အ⁠မြဲရှိ⁠စေရန် ⁠ဆောင်ရွက်ပါ။
+								ပိုတက်ဓါတ်⁠ေ⁠မြ⁠သြဇာ (၂၈) ⁠ပေါင်/ ဧက⁠နှုန်း (သို့မဟုတ်) စက်ဖွဲ⁠ပြာ (၁၀)တင်း/ဧက⁠နှုန်းကို ⁠ေ⁠မြခံအ⁠ဖြစ် ထည့်⁠ပေးပါ။ 
+							</p>
+							<p>
+								စပါး⁠ပြီးစပါးဆက်တိုက်စိုက်မည့်အစား နီမတုတ်ဆိုးဝါးစွာကျ⁠သော စိုက်ခင်းများကို စပါး ⁠နှင့် မျိုးရင်းမတူ⁠သော အ⁠ခြားသီး⁠နှံများ⁠နှင့် သီးလှည့်စိုက်ပါ။
+								နီမတုတ်ကျ⁠ရောက်ခဲ့⁠သော စိုက်ခင်းတွင် စပါး⁠ပြန်လည်စိုက်မည်ဆိုပါက Furadan (ဖျူရာဒန် ၃ဂျီ)ကို ညွှန်းပါ⁠နှုန်းအတိုင်း ⁠ေ⁠မြခံအ⁠ဖြစ် ⁠ကြဲပက်ထွန်⁠မွေ⁠ပြီးမှ စိုက်ပျိုးရန်။ 
+							</p>
+						<span class="tohide">ပိတ်မည် </span></span>
+					</div>
+				</div>
+
+				<br>
+				<span style="color:blue;">စပါး ⁠ဖောင်စီးဂဏန်း ကျ⁠ရောက်ပုံ ⁠နှင့် ကာကွယ်⁠နှိမ်နင်းနည်းများ</span>
+				<div class="card">
+					<div class="card-body">	
+						<p>
+							တိုက်ရိုက်အ⁠စေ့ချစိုက် စပါးခင်းတွင် အ⁠ညှောက်ထွက်ခါစအချိန်မှ (၁) လသားအတွင်း ကျ⁠ရောက်တတ်သည်။ 
+							⁠ဖောင်စီးဂဏန်းသည် နယုန်လဆန်းမှ ဝါဆိုလဆန်း ဒီ⁠ရေများ⁠ဖြင့် ပင်လယ်သို့ ဆင်းပါသည်။ ၎င်းအချိန်တွင် စပါးပင်များ လက်မ⁠ဖြင့်ညှပ် ⁠ဖြတ်ပါသည်။ 
+						</p>
+						<center><img src="images/farmer35.jpg"></center>
+						<span class="toshow">ဆက်လက်ဖတ်ရှု့ရန် </span>
+						<span class="hidedata">
+							<p>
+								ပင်လယ်တွင် သား⁠ပေါက်ကာ ကွန်မကဟု⁠ခေါ်⁠သော ဂဏန်းသား⁠ပေါက်များသည် ဝါဆိုလ⁠ပြည့်⁠ရေ⁠ဖြင့် ⁠ပြန်တတ်လာ⁠ခြင်း ⁠ဖြစ်သည်။ ⁠သေးငယ်⁠သော ဂဏန်း⁠ကောင်များ (ကွန်မက) များသည်ဒီ⁠ရေအတက်တွင် ပင်လယ်ကမ်းရိုးတမ်းရှိ စပါးခင်းများတွင် ကျ⁠ရောက်⁠လေ့ရှိ⁠ပြီး စပါးပျိုးပင် သက်တမ်းငယ်⁠သော စပါးခင်းများ၏ စပါးပင်ထိပ်ဖျားကိုက်ညှပ်ဖျက်ဆီး⁠ခြင်း၊ ဟီး⁠လေးခို၍ ဖျက်ဆီး⁠ခြင်းများ ⁠ပြုလုပ်ပါသည်။ စပါးပင်များ ⁠ကြီး⁠နေပါက ဖျက်ဆီးမှု မခံရ⁠တော့⁠ပေ။ 
+							</p>
+							<p>
+									<span style="color: blue;">ပုံသဏ္ဍာန်</span>
+									အရွယ်⁠ရောက်⁠ကောင်မှာ ၁ ၁/၂ လက်မခန့် ရှိသည်။ ခ⁠န္ဓာကိုယ်အညို⁠ရောင် ရှိသည်။ 
+							</p>
+							<p>
+								<span style="color: blue;">ကာကွယ်⁠နှိမ်နင်းနည်း</span>
+								<br>၁။ ဖျက်ဆီးခံရသည့် စပါးခင်းကို ထပ်မံ စိုက်ပျိုးရန် လိုအပ်သ⁠ဖြင့် မျိုး⁠စေ့⁠နှုန်း (၂) ဆ မှ (၃) ဆ အသင့် ⁠ဆောင်ထားပါ။
+
+								<br>၂။ ⁠ဖောင်စီးဂဏန်း ပင်လယ်ထဲသို့ ⁠ရေထရက်တွင် စတင်ဆင်းသ⁠ဖြင့် ⁠ရေဆုတ်ရက်တွင် မျိုး⁠ကြဲ⁠ခြင်း⁠ဖြင့် ⁠ဖောင်စီးဂဏန်း ဖျက်ဆီးမှုကို သက်သာ⁠စေ⁠နိုင်သည်။
+
+								<br>၃။ မျိုး⁠ကြဲချိန်တွင် လယ်ကွက်ထဲရှိ လက်ကျန်⁠ဖောင်စီးဂဏန်းများ ဖျက်ဆီးမှုမရှိ⁠စေရန် မျိုး⁠စေ့ (၁)တင်းကို ထိ⁠သေစား⁠သေ စတီးဇွန်း (၅) ဇွန်း ⁠နှင့် လူးနယ်၍ ⁠ကြဲပက်ပါ။
+
+								<br>၄။ ဆန်ကွဲ (၄) ⁠ပြည်ကို ⁠ကြိုချက်⁠ပြီး ထိ⁠သေစား⁠သေ စတီးဇွန်း (၁၀) ဇွန်း ⁠နှင့် ⁠ရော၍ အစာအဆိပ်⁠ပြုလုပ်⁠ပြီး လယ်ကွက်ထဲသို့ ⁠ကြဲပက်ပါ။ 								
+							</p>				
+						<span class="tohide">ပိတ်မည် </span></span>
+					</div>
+				</div>
+				<br>
+
+				<span style="color:blue;">စပါး⁠ဖြုတ်ညို (စုပ်စားပိုး) </span>
+				<div class="card">					
+					<div class="card-body">
+						<p>
+							<br>၁။ ⁠ပေါင်း⁠မြက်များ ရှင်းလင်းပါ။ စပါး ⁠နှင့် စပါးရိုင်းများတွင် မျိုးပွား⁠နိုင်သည်။
+
+							<br>၂။ ယူရီးယား ⁠ေ⁠မြ⁠သြဇာကို သုံး⁠ကြိမ်ခွဲထည့်ပါ။ 
+						</p>
+						<center><img src="images/farmer36.jpg"></center>
+						<span class="toshow">ဆက်လက်ဖတ်ရှု့ရန် </span>
+						<span class="hidedata">
+							<p>
+								၃။ ⁠ဖြုတ်ညိုများကို ကင်း⁠ထောက်ပါ။ ⁠ဖြုတ်ညိုများ⁠တွေ့လျှင် ⁠ေ⁠နွစပါးတွင် ⁠ရေထုတ်⁠ပေးပါ။ အပင်⁠ေ⁠ခြမှာ ⁠ရေခိုး⁠ရေ⁠ငွေ့နည်း⁠အောင် ⁠ပြုလုပ်⁠ခြင်း⁠ဖြင့် ⁠ဖြုတ်ညို⁠ကြီးထွားမှုကို အဟန့်အတား⁠ဖြစ်⁠စေ⁠သော ပတ်ဝန်းကျင်သ⁠ဖြစ်⁠စေ⁠သော ပတ်ဝန်းကျင်အ⁠ေ⁠ခြအ⁠နေကို ဖန်တီး⁠ပေး⁠ခြင်း တစ်မျိုး⁠ဖြစ်⁠ပြီး ရှင်သန်ပွားများမှုကို အဟန့်အတား ⁠ဖြစ်⁠စေသည်။ 
+							</p>
+							<p>
+								၄။ ⁠ဖြုတ်ညိုပိုးများသည် အဓိကဖျက်ပိုး မဟုတ်ပါ။ ပုံမှန်အ⁠ေ⁠ခြအ⁠နေတွင် အဆင့်တိုင်းတွင် ⁠တောင်သူမိတ်⁠ဆွေပိုးများ၏ စား⁠သောက်⁠ခြင်းကို ခံရသ⁠ဖြင့် စပါးခင်းများ၌အ⁠ရေအတွက် အသင့်အတင့်⁠တွေ့ရပါသည်။ ⁠ဖြုတ်ပိုးမကျမီ ⁠ရှေ့ပိုင်း၌ ကျ⁠ရောက်⁠သော ဖျက်ပိုးများအတွက် ပိုးသတ်⁠ဆေးကို လိုအပ်သည်ထက် ပိုမိုသုံးမိသ⁠ဖြင့် ⁠ဖြုတ်ပိုးကိုစား⁠သောက်⁠သော မိတ်⁠ဆွေပိုးများ ⁠လျော့နည်းသွားပါသည်။ သဘာ၀ မိတ်⁠ဆွေပိုးများ မရှိ⁠သောအခါ ⁠ဖြုတ်ပိုးအ⁠ရေအတွက် များ⁠ပြားလာ⁠ပြီး စပါးခင်းကို ဒုက္ခ⁠ပေး⁠နိုင်⁠သော အဆင့်သို့⁠ရောက်လာ⁠ခြင်း ⁠ဖြစ်ပါသည်။ 
+							</p>
+							<p>
+								၅။ ⁠ဖြုတ်ညိုပိုးသည် ယခုမှအသစ်⁠ပေါ်လာ⁠သော ဖျက်ပိုးမဟုတ်ပါ။ စပါးစတင် စိုက်ပျိုးစဉ်ကပင် ⁠နှစ်⁠ထောင်⁠နှင့်ချီ၍ရှိယှဉ်တွဲ⁠ပြီး ရှိ⁠နေပါသည်။ မလိုအပ်ပဲ ပိုးသတ်⁠ဆေးကို အသုံး⁠ပြု⁠ခြင်း⁠ေ⁠ကြာင့် ဒုက္ခ⁠ပေး⁠ခြင်း ⁠ဖြစ်သည်။ အဓိက ဖျက်ပိုးအ⁠ဖြစ် တစ်ခါတရံ လူက နည်းပညာအသိနည်း၍ လူက⁠ပြုလုပ် ⁠ဆေး⁠ဖြန်းမှု⁠ေ⁠ကြာင့်⁠ဖြစ်⁠ပေါ်လာ⁠သော ⁠ပြဿနာ ⁠ဖြစ်သည်။ ⁠မြစိမ်း⁠ရောင်⁠တော်လှန်⁠ရေး (Green Revolution) ကာလတွင် ပိုးသတ်⁠ဆေးများ ပိုအပ်သည်ထက် ပိုသုံးစွဲမှု⁠ေ⁠ကြာင့် ၁၉၆၀ ⁠နောက်ပိုင်းတွင် ဖျက်ပိုးအ⁠ဖြစ် ထင်ရှားလာ⁠ခြင်း ⁠ဖြစ်ပါသည်။ 
+							</p>
+							<p>
+								၆။ စပါးတွင် အင်ဒိုဆာ(လ်)ဖန် မသုံးပါ⁠နှင့် ⁠ရေ⁠နေသတ္တဝါများ အ⁠န္တရာယ်ရှိပါသည်။ ဒီဆစ်၊ ဆိုက်ပါကဲ့သို့⁠သော ပါရီသရိုက်အုပ်စုဝင်⁠ဆေးများကို စပါးတွင် အသုံးမ⁠ပြုသင့်ပါ။ ⁠တောင်သူမိတ်⁠ဆွေပိုများကို ထိခိုက်⁠စေပါသည်။ မလိုအပ်ပဲ ⁠ဆေးသုံးမှုသည် ⁠နောက်ဆက်တွဲ  ဆိုးကျိုးအ⁠ဖြစ် စပါး⁠ဖြုတ်ညိုပိုး ပွားများ⁠စေပါသည်။ 
+							</p>
+						<span class="tohide">ပိတ်မည် </span></span>	
+					</div>
+				</div>
+				<br>
+
+				<span style="color:blue;">စပါး⁠ကျောက်ဆူးပိုး (ပိုး⁠လောင်မီး)</span>
+				<div class="card">					
+					<div class="card-body">
+						<p>
+							⁠ပေါင်း⁠မြက်များကို ရှင်းလင်းပါ။
+							ပင်လယ်ကမ်း⁠နှင့် နီး⁠သော⁠နေရာများတွင် ဆိုးရွားစွာ ကျတတ်ပါသည်။
+							ပိုးသတ်⁠ဆေးကို နည်းနည်း⁠ဖြင့် ထိ⁠ရောက်⁠အောင်သုံးပါ။ ကျ⁠ရောက်မှုနည်းပါက ပုံပါ အတိုင်း ⁠ရေစုပ်⁠သော⁠ကြိုးကို ပိုးသတ်⁠ဆေးရည် စိမ်၍ ပိုးများ⁠သော⁠နေရာများတွင် ဇလုပ်တိုက်ဆွဲ⁠ပေးပါ။ 
+						</p>
+						<center><img src="images/farmer37.jpg"></center>
+						<span class="toshow">ဆက်လက်ဖတ်ရှု့ရန် </span>
+						<span class="hidedata">
+							<p>
+								ပိုး⁠ကောင်အ⁠ရေအတွက်များ⁠ပြားပါက ပင်လုံး⁠ပြန့်ပိုးသတ်⁠ဆေးတစ်မျိုးမျိုးု⁠ဖြင့် ပက်ဖျန်း⁠နှိမ ်နင်းပါ။ သို့မဟုတ် ထိ⁠သေ၊ စား⁠သေ ⁠ဆေးတစ်မျိုးမျိုး သုံး⁠နိုင်ပါသည်။ ⁠ဆေးဖျန်းပါက တစ်ကွင်းလုံးကို မဖျန်းဘဲ ပိုးများသည့် ⁠နေရာများကို ကွက်၍⁠ဆေးဖျန်းပါ။ ⁠တောင်သူ အကျိုးု⁠ပြု မိတ်⁠ဆွေ ပိုးများအတွက် ခို⁠အောင်းရာ⁠နေရာ ဖန်တီး⁠ပေး⁠ခြင်းတစ်မျိုး ⁠ဖြစ်ပါသည်။ 
+							</p>
+							<p>
+								စပါးတွင် အင်ဒိုဆာ(လ်)ဖန် မသုံးပါ⁠နှင့် ⁠ရေ⁠နေသတ္တဝါများ အ⁠န္တရာယ်ရှိပါသည်။ ဒီဆစ်၊ ဆိုက်ပါ ကဲ့သို့⁠သော ပါရီသရိုက် အုပ်စုဝင်⁠ဆေးများကို စပါးတွင် အသုံးမ⁠ပြုသင့်ပါ။ ⁠တောင်သူမိတ်⁠ဆွေ ပိုးများကို ထိခိုက်⁠စေပါသည်။ မလိုအပ်ပဲ⁠ဆေးသုံးမှုသည် ⁠နောက်ဆက်တွဲ ဆိုးကျိုးအ⁠ဖြစ် စပါး⁠ဖြုတ်ညိုပိုးပွားများ⁠စေရန် အခွင့်အလမ်း⁠ဖြစ်⁠ေ ပါ်⁠စေသည်။ 
+							</p>
+						<span class="tohide">ပိတ်မည် </span></span>	
+					</div>
+				</div>
+				<br>
+
+				<span style="color:blue;">စပါးတွင်ငမြောင်⁠တောင်ပိုး ကျ⁠ရောက်ပုံ⁠နှင့် ကာကွယ်⁠နှိမ်နင်းနည်းများ</span>
+				<div class="card">					
+					<div class="card-body">
+						<p>
+							ငယ်စဉ်တွင် အရွက်၏ အစိမ်း⁠ရောင်အသားကို ⁠ခြစ်စားသ⁠ဖြင့် အစိမ်း⁠ရောင်⁠ပျောက်⁠နေ⁠သော စပါးရွက်များကို ⁠တွေ့ရ⁠ပြီး အ⁠ကောင်⁠ကြီး အရွယ်တွင် အရွက်များကို ကိုက်⁠ဖြတ်စား⁠သောက်သ⁠ြ ဖင့် အရွက်များ ⁠ပြတ်⁠နေသည်။ ပျိုးခင်းတွင် ပိုမို⁠တွေ့⁠နိုင်သည်။ 
+						</p>
+						<center><img src="images/farmer38.jpg"></center>
+						<span class="toshow">ဆက်လက်ဖတ်ရှု့ရန် </span>
+						<span class="hidedata">
+							<p>
+								<span style="color: blue;">ကျ⁠ရောက်ချိန်</span>
+								ပျိုးခင်း⁠နှင့် ⁠ေ⁠ပြာင်း⁠ရွှေ့စိုက်⁠ပြီးခါစ အခင်းများတွင် ဆိုးဝါးစွာ ကျ⁠ရောက်⁠နိုင်သည်။ ⁠ရေ⁠ကြီး၊ ⁠ရေလျှံ၍ ⁠ပြန်လည်စိုက်ပျိုး⁠သော အခင်းများတွင် အထူးဂရုစိုက်ရန် လိုအပ်သည်။ ⁠ေ⁠နွ/ မိုးစပါးတွင် ကျ⁠ရောက်⁠ပြီး မိုးစပါးတွင် ပိုမိုဆိုးဝါး⁠နိုင်သည်။ မိုးဦး⁠ကောင်း⁠ပြီး မိုးလည်⁠ခေါင်⁠သော ⁠နှစ်များတွင် ကျ⁠ရောက်မှု ပိုများသည်။ မိုးစပါး ⁠နှင့် တိုက်ရိုက်စိုက်ခင်းများတွင် ⁠ပေါင်း⁠မြက်ထူထပ်⁠နေပါက ကျ⁠ရောက်မှု ပိုများ⁠နိုင်ပါသည်။ စပါးသီးထပ် စိုက်⁠သော ⁠နှစ်များတွင် ကျ⁠ရောက်မှု ပိုများ⁠နိုင်သည်။ 
+							</p>
+							<p>
+								<span style="color: blue;">ကာကွယ်⁠နှိမ်နင်းနည်း</span>
+								<br>၁။ စပါးခင်း ပတ်ဝန်းကျင်တွင် ⁠ပေါင်း⁠မြက်များသုတ်သင်ရှင်းလင်းပါ။
+
+								<br>၂။ စပါးခင်း ကန်သင်း⁠ဘောင်များကို ခိုင်ခံ့⁠အောင် ⁠ပြုလုပ်ပါ။
+
+								<br>၃။ သီးလှည့်စိုက်ပျိုးပါ။
+
+								<br>၄။ ထယ်⁠ရေးနက်နက်ထိုး⁠ပြီးရိုး⁠ပြတ်များကို မီးရှု့ပါ။
+
+								<br>၅။ ပိုး⁠ကောင်ကျ⁠နေ⁠သော စိုက်ခင်းများထဲသို့ ⁠ရေသွင်းပါ။
+
+								<br>၆။ င⁠ေ⁠မြှာင်⁠တောင်ဥ အစုလိုက်⁠တွေ့⁠ပြီး တစ်ပတ်ဆယ်ရက်⁠ကြာလျှင် အညွှန်း⁠ဆေးကို စပါးရွက်⁠အောက် မျက်⁠နှာ⁠ပြင်ကို ⁠ရောက်⁠အောင်ဖျန်းပါ။ 
+							</p>
+						<span class="tohide">ပိတ်မည် </span></span>	
+					</div>
+				</div>
+				<br>
+
+				<span style="color:blue;">စပါးဘတ်တီးရီးယား⁠ရောဂါ (ရွက်ခြောက်) </span>
+				<div class="card">					
+					<div class="card-body">
+						<p>
+							⁠<span style="color: blue;">ရောဂါလက္ခဏာများ</span>
+							ပင်ညှိုး လက္ခဏာ၊
+							ပင်ညှိုး လက္ခဏာ အနးီကပ်⁠တွေ့ရပုံ၊
+							စပါးရွက်ထိပ်ဖျားတွင် ⁠ရေစိုနာကွက်စတင်⁠ဖြစ်⁠ပေါ်လာပုံ ⁠နှင့် ဘတ်တီးရီးယား စိမ့်ထုတ်ရည်များ ထွက်⁠နေပုံ၊
+							ရွက်⁠ေ⁠ခြာက် လက္ခဏာ
+
+						</p>
+						<center><img src="images/farmer39.jpg"></center>
+						<span class="toshow">ဆက်လက်ဖတ်ရှု့ရန် </span>
+						<span class="hidedata">
+							<p>
+								⁠<span style="color: blue;">ရောဂါစက်ဝန်း</span>
+								ကနဦးဒဏ်ရာများ⁠ပေါ်လာ⁠ပြီးသည့်⁠နောက် အရွက်မျက်⁠နှာ⁠ပြင်⁠ပေါ်ရှိ ယိုစိမ့်ရည်စက်ငယ် တွင် ပါရှိမည့် ဘက်တီးရီးယားများသည် ⁠လေ⁠ဖြင့်၎င်း၊ ⁠ရေ⁠ဖြင့်၎င်း၊ ⁠ဒေသတစ်ခု၏ ⁠နေရာအ⁠နှံ့သို့ ပျံ့⁠နှံ့မည်။
+
+								စပါးပင်များသည် ⁠ရောဂါစွဲကပ်⁠နေသည့် ရိုး⁠ပြတ်များ၊ မျိုး⁠စေ့များ၊ စပါးခင်း⁠ရေ ⁠နှင့် ⁠ကောက်ရိုး စသည့်⁠ရောဂါရင်း⁠မြစ်များမှ ဘက်တီးရီးယား ရွက်⁠ေ⁠ခြာက်⁠ရောဂါ ⁠ဖြစ်⁠ပေါ်လာ⁠နိုင်သည်။
+
+								သီး⁠နှံပင်⁠ကြီးထွားဆဲအချိန်တွင် ⁠မြင့်မား⁠သော အပူချိန်၊ စိုထိုင်းမှုတို့သည် ရွက်⁠ေ⁠ခြာက်⁠ရောဂါ ကျ⁠ရောက်⁠ခြင်းကို တိုးပွား⁠စေသည်။ 
+							</p>
+							<p>
+								ဘက်တီးရီးယားများသည် “⁠ရေစိမ့်⁠ပေါက်” (Hydathodes) များမှလည်း⁠ကောင်း၊ အရွက် (သို့မဟုတ်) အ⁠မြစ်⁠ပေါ်ရှိဒဏ်ရာများမှလည်း⁠ကောင်း ဝင်⁠ရောက်⁠ပြီး အပင်အတွင်းတွင် ပွားများလာ⁠နိုင်သည်။
+
+								ဘက်တီးရီးယားများသည် အပင်အတွင်းတွင် ပွားများ⁠ပြီး ရွက်⁠ေ⁠ကြာများထဲသို့ဝင်သည်။ အ⁠မြစ် များအတွင်းသို့ ဝင်⁠ရောက်သည့် ဘက်တီးရီးယားများသည် ⁠ရေ⁠ေ⁠ကြာတစ်ရှူးများကို ပိတ်ဆို့⁠ြ ခင်း⁠ဖြင့်  အပင်ကို ညှိုး⁠နွမ်း⁠စေသည်။ 
+							</p>
+							<p>
+								⁠⁠<span style="color: blue;">ဆောင်ရွက်ရန်</span>
+								⁠ရောဂါဒဏ်ခံ⁠နိုင်ရည်ရှိ⁠သော မျိုးများမှား – ရတနာ⁠အောင်၊ ⁠ရေဆင်း (၂) ⁠နှင့် (၃)၊ ဆင်းသိင်္ဂီ၊ ဆင်းသီရိ
+
+								⁠ရောဂါအသင့်အတင့်ခံ⁠နိုင်⁠သော မျိုးများမှာ – ဆာငံခံ (၄)၊ ⁠ရေနက်(၄)၊ ဆင်းဧကရီ (၃)၊ ဆင်းဧကရီ (၄)၊ ⁠ရွှေတဆုပ်၊ စိန်တ⁠လေးတို့ ⁠ဖြစ်ပါသည်။
+
+								ပုလဲဓါတ်⁠ေ⁠မြ⁠သြဇာကို လွန်ကဲစွာအသုံးမ⁠ပြုဘဲ တီစူပါ၊ ပိုတက်၊ (ဖွဲ⁠ပြာ)စသည်တို့ ⁠နှင့် ⁠ရော၍ အသုံး⁠ပြုပါ။
+
+								⁠ကောက်ကွက်ကျဲကျဲစိုက်ပါ။ 
+							</p>
+							<p>
+								၎င်း⁠ရောဂါသည် စက်တင်ဘာလတွင် ⁠ပြင်းထန်စွာ ကျ⁠ရောက်တတ်သ⁠ဖြင့် မိုးစပါးကို စိုက်ချိန်⁠စော၍ စိုက်⁠ခြင်း⁠ဖြင့် ဘက်တီးရီးယားရွက်⁠ေ⁠ခြာက်⁠ရောဂါ ကျ⁠ရောက်⁠ခြင်းကို ⁠ရှောင်ရှား⁠နိုင်ပါသည်။
+
+								Copper hydroxide ⁠ေ⁠ကြးဒုတ္ထာ ဟိုက်⁠ေ⁠ဒြာဆိုဒ်အုပ်စုဝင် (ချန်ပီယံ၊ ကိုဆိုဒ်) ကဲ့သို့⁠သော အလားတူ⁠ဆေးများ Copper Oxychloride ⁠ေ⁠ကြးဒုတ္ထာ ⁠အောက်ဆီကလိုရိုဒ် အုပ်စုဝင် (⁠ကော့ပ်တက်၊ ကျူမရိုမက်) ကဲ့သို့⁠သော အလားတူ⁠ဆေးများ၊
+
+								Kasugamycin ကာစူကာမိုင်စင်အုပ်စုဝင် (ကာဆူမင်၊ ဆိုင်ပန်) ကဲ့သို့⁠သော အလားတူ⁠ဆေး များကို အညွှန်းပါ⁠ဆေး⁠နှုန်းထားအတိုင်း ပက်ဖျန်းကာကွယ်⁠နှိမ်နင်းပါ။ 
+							</p>
+							<p>
+								မျိုး⁠စေ့များ ဆားရည်စိမ်စိုက်ပါ။ ဆားရည်ကို စင်⁠အောင် ⁠သေချာစွာ⁠ရေ⁠ဖြင့်⁠ဆေး⁠ပြီးမှ အပင်⁠ေ ဖာက်စိုက်ပါ။ ဤသို့ ⁠ပြုလုပ်⁠ခြင်းသည် သန်မာ⁠သောပျိုးပင်ရ၍ ကိုယ်ခံအား⁠ကောင်းသည့်အ⁠ပြင် မျိုး⁠စေ့⁠ဆောင်⁠ရောဂါများကို ဖယ်ရှား⁠နိုင်ပါသည်။ 
+							</p>
+						<span class="tohide">ပိတ်မည် </span></span>	
+					</div>
+				</div>
+				<br>
+
+				<span style="color:blue;">စပါးရွက်ဖုံး⁠ခြောက်မှို⁠ရောဂါ</span>
+				<div class="card">					
+					<div class="card-body">
+						<p>
+							၁။ ခံ⁠နိုင်ရည်ရှိ⁠သော မျိုးများမှာ – ⁠ရွှေတဆုပ်၊ ဆားငံခံ (၂)၊ ⁠ရေနက် (၃)
+
+								အသင့်အတင့်ခံ⁠နိုင်⁠သောမျိုးများမှာ – ⁠ကျော်⁠ဇေယျ၊ မ⁠နောသုခ၊ စိန်တ⁠လေး၊ ဧရာမင်း၊ လုံးသွယ်⁠မွှေး၊ ဆင်းသီရိ တို့ ⁠ဖြစ်သည်။
+
+								<br>၂။ ရွက်ဖုံး⁠ေ⁠ခြာက်⁠ရောဂါ⁠ဖြစ်မှိုသည် သဘာဝအား⁠ဖြင့် ⁠ပေါင်း⁠မြက်ပင်များတွင် ခို⁠အောင်း⁠နေသ⁠ဖြင့် ⁠ပေါင်း⁠မြက်များကို မီးရှို့ဖျက်ဆီးရန် လိုအပ်ပါသည်။ 
+						</p>
+						<center><img src="images/farmer40.jpg"></center>
+						<span class="toshow">ဆက်လက်ဖတ်ရှု့ရန် </span>
+						<span class="hidedata">
+							<p>
+								၃။ မစိုက်မီ စပါးမျိုး⁠စေ့ကို  မှိုသတ်⁠ဆေး ဟိုမိုင်း (Homai 80% WP) ⁠နှင့် လူးနယ် စိုက်ပျိုးရပါမည်။
+
+								(မှိုသတ်⁠ဆေး ဟင်းစားဇွန်း တစ်ဇွန်း – မျိုး⁠စေ့တစ်⁠ပြည်⁠နှုန်း)။
+
+								<br>၄။ စိုက်ခင်းတွင် ⁠ရောဂါကျ⁠ရောက်ပါက ဆာလ်ဖာပါ⁠သော မှိုသတ်⁠ဆေးများကို ပက်ဖျန်း⁠နိုင် ပါသည်။ အထူးသ⁠ဖြင့် ဘာလီဒါမိုင်ဇင် (Validamycim)၊ ကာဆူမင် (Kasumin) မှိုသတ်⁠ဆေး ၁း၁၀၀၀ အချိုး⁠နှုန်း⁠နှင့် ⁠ဖျော်၍ ပတ်ဖျန်းပါက ထိ⁠ရောက်စွာ ကာကွယ်⁠နှိမ်နင်း⁠နိုင် ပါသည်။
+
+								<br>၅။ ပုလဲ⁠ေ⁠မြ⁠သြဇာတစ်မျိုးတည်း လွန်ကဲစွာထည့်သွင်း⁠ခြင်းမ⁠ပြုရပါ။ တီစူပါ ⁠နှင့် ပိုတက်⁠ေ⁠မြ ⁠သြဇာကို အချိုးညီ⁠ရော၍ ထည့်သွင်းရပါမည်။
+
+								<br>၆။ မျိုး⁠စေ့များ ဆားရည်စိမ်စိုက်ပါ။ ဆားရည်ကို စင်⁠အောင် ⁠သေချာစွာ⁠ရေ⁠ဖြင့်⁠ဆေး⁠ပြီးမှ အပင်⁠ေ ဖာက်စိုက်ပါ။ ဤသို့ ⁠ပြုလုပ်⁠ခြင်းသည် သန်မာ⁠သော ပျိုးပင်ရ၍ ကိုယ်ခံအား⁠ကောင်းသည့်အ⁠ပြင် မျိုး⁠စေ့⁠ဆောင်⁠ရောဂါများကို ဖယ်ရှား⁠နိုင်ပါသည်။ 
+							</p>
+						<span class="tohide">ပိတ်မည် </span></span>	
+					</div>
+				</div>
+				<br>
+
+				
+				<span style="color:blue;">စပါးရွက်လိပ်အိမ်ပိုး (ရွက်⁠ဖြတ်ပိုး) </span>
+				<div class="card">					
+					<div class="card-body">
+						<p>
+							၁။ ⁠ပေါင်း⁠မြက်များကို ရှင်းလင်းပါ။
+
+							<br>၂။ ရွက်လိပ်အိမ်ပိုး⁠လောက်⁠ကောင်များသည် ⁠လေ⁠ပြွန်⁠လေးများမှတဆင့် ⁠ရေထဲမှ ⁠လေကို အသက်ရှူပါသည်။
+
+							<br>သို့⁠ဖြစ်ပါ၍ ⁠ရေကို သုံးရက်ခန့် ထုတ်⁠ပေးပါ။ 
+						</p>
+						<center><img src="images/farmer41.jpg"></center>
+						<span class="toshow">ဆက်လက်ဖတ်ရှု့ရန် </span>
+						<span class="hidedata">
+							<p>
+								၃။ ⁠ရေကို ⁠ေ⁠ပြာင်စင်⁠အောင်ထုတ်ပါက ဧရာဝတီတိုင်း⁠ေ⁠နွစပါးတွင် ⁠ပေါင်း⁠ပြဿနာ⁠နှင့် ⁠မြစ်ဖုနီ မတုတ်⁠ပြဿနာများကို ထည့်သွင်းစဉ်းစားရမည်။ ဤကဲ့သို့⁠သော ⁠နေရာများတွင် ⁠ရေကို ⁠ေ⁠ပြာင်စင်⁠အောင်မထုတ်ရပါ။ ⁠ရေစီး⁠နှင့်⁠ေ⁠မြာလာ⁠သော ရွက်လိပ်အိမ်ပိုး⁠လောက်⁠ကောင်များ အစုအ⁠ဝေးကို ဆန်ကာ ⁠နှင့် ဆယ်ယူ၍ ကုန်း⁠ပေါ်သို့ တင်⁠ခြင်းအား⁠ဖြင့် ⁠သေ⁠စေ⁠နိုင်ပါသည်။ 
+							</p>
+							<p>
+								၄။ အကယ်၍ ဤသို့ဆန်ကာ⁠ဖြင့် ဆယ်ထုတ်ရန် အချိန်မ⁠ပေး⁠နိုင်ပါက ရွက်လိပ်အိမ်ပိုး အစုအ⁠ဝေးများရှိ⁠သော ⁠နေရာများကို တမာပိုးသတ်⁠ဆေး (သို့မဟုတ်) ထိ⁠သေပိုးသတ်⁠ဆေး တစ်မျိုးမျိုးကို ကွက်၍ ⁠ဆေးဖျန်းပါ။ 
+							</p>
+							<p>
+								၅။ စပါးတွင် အင်ဒိုဆာ(လ်)ဖန် အသုံးပါ⁠နှင့် ⁠ရေ⁠နေသတ္တဝါများအ⁠န္တရာယ်ရှိပါသည်။ ဒီဆစ်၊ ဆိုက်ပါကဲ့သို့⁠သော ပါရီသရိုက် အုပ်စုဝင်⁠ဆေးများကို စပါးတွင် အသုံးမ⁠ပြုသင့်ပါ။ ⁠တောင်သူ့မိတ်⁠ဆွေပိုးများကို ထိခိုက်⁠စေပါသည်။
+
+								<br><br>မလိုအပ်ပဲ⁠ဆေးသုံးမှုသည် ⁠နောက်ဆက်တွဲ ဆိုးကျိုးအ⁠ဖြစ် စပါး⁠ဖြုတ်ညိုပိုး ပွားများ⁠စေရန် အခွင့်အလမ်း ⁠ဖြစ်⁠ပေါ်⁠စေသည်။ 
+							</p>
+						<span class="tohide">ပိတ်မည် </span></span>	
+					</div>
+				</div>
+				<br>
+
+				
+				<span style="color:blue;">⁠တောင်သူ့မိတ်⁠ဆွေပိုးများ</span>
+				<div class="card">					
+					<div class="card-body">
+						<p>
+							<span style="color: blue;">(၁) ကပ်ပါးများ</span>
+							<br>ဆစ်ပိုးဥများ၏ ဥကပ်ပါးနကျယ်များ၊ဥကပ်ပါးနကျယ်များ၊ကပ်ပါး⁠ပြုလုပ်ခံရ⁠သော ဖျက်ပိုးဥများ၊ကပ်ပါးမှိုများ၊ကပ်ပါးဗိုင်းရပ် (စ်)များ၊ရွက်⁠ဖြတ်ပိုး ပိုးတုံးလုံး၏ ကပ်ပါးနကျယ်
+						</p>
+						<center><img src="images/farmer42.jpg"></center>
+						<span class="toshow">ဆက်လက်ဖတ်ရှု့ရန် </span>
+						<span class="hidedata">
+							<p>
+								<span style="color: blue;">(၂) သားရဲ⁠ကောင်များ</span>
+								<br>ဂီတာကျိုင်း၊
+								လိပ်ခုံးကျိုင်း၊
+								ပုဇင်းများ၊
+								ပင့်ကူများ၊
+								⁠ရေသမင်၊ ⁠ရေ⁠နေပျပိုး၊
+								⁠ဖြုတ်ပိုးအငယ်⁠နှင့် ဥများကိုစုပ်စား⁠သော ဂျပိုးစိမ်း၊
+								ခါးရှည်ကျိုင်း၊
+								ခါးရှည်ကျိုင်း၊
+								⁠နှံ⁠ကောင်၊
+								ပုရစ်၊
+								သားရဲဂျပိုး၊
+								သားရဲဂျပိုး၊
+							</p>
+							<p>
+								<span style="color: blue;">(၃) သားရဲ⁠ကောင် (မုဆိုးများ)</span>
+								<br>လင်⁠ခေါင်းပိုးငှက် (ငှက်ဆိုး)၊
+
+								ငှက် (ပိုး⁠ကောင်စားမုဆိုး)၊
+
+								ပုရွက်ဆိတ်၊
+
+								လင်⁠ခေါင်ပိုး (⁠ကြွက်မုဆိုး)၊
+
+								ဖား (ပိုး⁠ကောင်စားမုဆိုး)၊
+
+								သားရဲ⁠ကောင်ကျိုင်း။
+							</p>
+						<span class="tohide">ပိတ်မည် </span></span>	
+					</div>
+				</div>
+				<br>
+					
+				</div>
+			</section>
+			<!-- Section: Intro -->
+		</div>
+	</main>
+	<!-- Main layout -->
+
+	<!-- Footer -->
+	<footer class="page-footer pt-0 mt-5 rgba-stylish-light">
+		<!-- Copyright -->
+		<div class="footer-copyright py-3 text-center">
+			<div class="container-fluid">Developed By : <a href="#" target="_blank"><a href="https://www.facebook.com/mmsoftware100"> TEAM CS </a>
+				<br><span>Version 2.0</span>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer -->
+
+
+	
+	
+	<!-- SCRIPTS -->
+	<!-- JQuery -->
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<!-- Bootstrap tooltips -->
+	<script type="text/javascript" src="js/popper.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<!-- MDB core JavaScript -->
+	<script type="text/javascript" src="js/mdb.min.js"></script>
+
+	
+	<script src="js/modernizr.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/underscore.min.js"></script>
+	<script src="js/backbone.js"></script>
+
+
+	<!-- Initializations -->
+	<script>
+		// SideNav Initialization
+		    $(".button-collapse").sideNav();
+		
+		    var container = document.querySelector('.custom-scrollbar');
+		    var ps = new PerfectScrollbar(container, {
+		      wheelSpeed: 2,
+		      wheelPropagation: true,
+		      minScrollbarLength: 20
+		    });
+		
+		    // Data Picker Initialization
+		    //$('.datepicker').pickadate();
+		
+		    // Material Select Initialization
+		    $(document).ready(function () {
+		      
+		      $('.mdb-select').material_select();
+		
+		      $('section').hide();
+		      $("#intro_section").show();
+		      // login section show
+		      // all hide
+		
+		
+		      $('.ui_navigation').click(function(){
+		          var link = $(this).attr('href');
+		          link = link.substring(1);
+		          //alert(link);
+		          $('section').hide();
+		          $("#"+link).show();
+		      });
+		    });
+		
+		    // Tooltips Initialization
+		    $(function () {
+		      $('[data-toggle="tooltip"]').tooltip()
+		    })
+	</script>
+	<!-- Our JavaScript -->
+	<script type="text/javascript" src="js/software_store.js"></script>
+	<script type="text/javascript">
+		var endpoint="https://team-cs.herokuapp.com/farmer_server/farmer.php";
+		$(document).ready(function(){
+			// $("#loading").show();
+			// if(!navigator.onLine)
+			// {
+			// 	$("#loading").hide();
+			// }
+			$(document).on("click",".toshow",function(){
+				//alert("ok");
+				$(this).next().show();
+			});
+			$(document).on("click",".tohide",function(){
+				//alert("ok");
+				$(this).parent().hide();
+			});
+
+			//===========server data မရှိရင် storage ထဲကပြအောင်================
+			var storedata=JSON.parse(localStorage.getItem("insectdata"));
+			if(storedata)
+			{
+				for(i=0;i<storedata.length;i++)
+				{
+					$("#toappend").prepend('<span style="color:blue;">'+storedata[i]['title']+'</span><div class="card"><div class="card-body"><p>'+storedata[i]['part1']+'</p><center><img src="'+storedata[i]['image']+'" alt="No Internet(image)"></center><span class="toshow">ဆက်လက်ဖတ်ရှု့ရန် </span><span class="hidedata"><p>'+storedata[i]['part2']+'</p><span class="tohide">ပိတ်မည် </span></span></div></div><br>');
+				}
+			}
+			if(navigator.onLine)
+			{
+				$("#loading").show();
+				var lastid=localStorage.getItem("insectid");
+				$.get(endpoint,{insect:"insect",lastid:lastid},function(res){ console.log(res);
+					if(res!=404)
+					{
+						var newdata=JSON.parse(res);//console.log(newdata[0]['title']);
+						var org=JSON.parse(localStorage.getItem("insectdata"));
+
+						var array_id= new Array();
+
+						localStorage.setItem("insectdata",JSON.stringify(newdata));
+						var decode=JSON.parse(localStorage.insectdata);//console.log("local :"+decode[0]['title']);
+						for(i=0;i<decode.length;i++)
+						{
+							$("#toappend").prepend('<span style="color:blue;">'+decode[i]['title']+'</span><div class="card"><div class="card-body"><p>'+decode[i]['part1']+'</p><center><img src="'+decode[i]['image']+'" alt="No Internet(image)"></center><span class="toshow">ဆက်လက်ဖတ်ရှု့ရန် </span><span class="hidedata"><p>'+decode[i]['part2']+'</p><span class="tohide">ပိတ်မည် </span></span></div></div><br>');
+
+							array_id[i]=decode[i]['dbId'];
+						}
+
+						lastid=Math.max.apply(null,array_id);
+						localStorage.setItem("insectid",lastid);console.log("last id : "+localStorage.getItem("insectid"));
+
+						if(org===null)
+						{
+							localStorage.setItem("insectdata",JSON.stringify(newdata));
+						}
+						else
+						{
+							var all=org.concat(newdata);
+							localStorage.setItem("insectdata",JSON.stringify(all));
+						}
+						$("#loading").hide();
+					}
+					else
+					{
+						$("#loading").hide();
+					}
+				});
+			}	
+		});
+	</script>
+</body>
+
+</html>
