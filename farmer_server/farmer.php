@@ -12,10 +12,9 @@
 	if(isset($_GET['knowledge']))
 	{
 		//echo $_GET['lastid'];
-		$sql=$conn->prepare("SELECT * FROM farmer WHERE dbId>? AND status=? LIMIT 10");
-		$sql->bind_param("ii",$lastid,$status);
+		$sql=$conn->prepare("SELECT * FROM farmer WHERE dbId>? LIMIT 10");
+		$sql->bind_param("i",$lastid);
 		$lastid=security(($_GET['lastid']));//echo $lastid;
-		$status=1;
 		$sql->execute();
 		$result=$sql->get_result();
 		$row=$result->num_rows;
@@ -38,10 +37,9 @@
 	if(isset($_GET['plant']))
 	{
 		//echo $_GET['lastid'];
-		$sql=$conn->prepare("SELECT * FROM plant WHERE dbId>? AND status=? LIMIT 10");
-		$sql->bind_param("ii",$lastid,$status);
+		$sql=$conn->prepare("SELECT * FROM plant WHERE dbId>? LIMIT 10");
+		$sql->bind_param("i",$lastid);
 		$lastid=security(($_GET['lastid']));//echo $lastid;
-		$status=1;
 		$sql->execute();
 		$result=$sql->get_result();
 		$row=$result->num_rows;
@@ -63,10 +61,9 @@
 	if(isset($_GET['insect']))
 	{
 		//echo $_GET['lastid'];
-		$sql=$conn->prepare("SELECT * FROM insects WHERE dbId>? AND status=? LIMIT 10");
-		$sql->bind_param("ii",$lastid,$status);
+		$sql=$conn->prepare("SELECT * FROM insects WHERE dbId>? LIMIT 10");
+		$sql->bind_param("i",$lastid);
 		$lastid=security(($_GET['lastid']));//echo $lastid;
-		$status=1;
 		$sql->execute();
 		$result=$sql->get_result();
 		$row=$result->num_rows;
@@ -88,10 +85,9 @@
 	if(isset($_GET['flower']))
 	{
 		//echo $_GET['lastid'];
-		$sql=$conn->prepare("SELECT * FROM flower WHERE dbId>? AND status=? LIMIT 10");
-		$sql->bind_param("ii",$lastid,$status);
+		$sql=$conn->prepare("SELECT * FROM flower WHERE dbId>? LIMIT 10");
+		$sql->bind_param("i",$lastid);
 		$lastid=security(($_GET['lastid']));//echo $lastid;
-		$status=1;
 		$sql->execute();
 		$result=$sql->get_result();
 		$row=$result->num_rows;
